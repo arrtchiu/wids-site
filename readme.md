@@ -1,4 +1,4 @@
-widc-sploit
+wids-site
 ===========
 
 Intro
@@ -19,8 +19,8 @@ Requirements
 Setup
 -----
 
-    git clone https://github.com/arrtchiu/widc-sploit widc-sploit
-    cd widc-sploit
+    git clone https://github.com/arrtchiu/wids-site wids-site
+    cd wids-site
     heroku create
     heroku addons:add heroku-postgresql
     git add .
