@@ -22,9 +22,15 @@ Setup
     git clone https://github.com/arrtchiu/wids-site wids-site
     cd wids-site
     heroku create
+
     heroku addons:add heroku-postgresql
-    git add .
-    git commit -m 'update database config'
+    
+    # You will receive a line of output like:
+    # Attached as HEROKU_POSTGRESQL_OLIVE_URL
+    # (Yours may be different) - copy the value you got and use it in the next command
+
+    heroku config:set DATABASE_URL=$(heroku config:get HEROKU_POSTGRESQL_OLIVE_URL)
+
     git push heroku master
     cat setup/init_db.sql | heroku pg:psql
 
