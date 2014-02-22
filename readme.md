@@ -1,6 +1,13 @@
 widc-sploit
 ===========
 
+Intro
+-----
+
+This is a site for demonstrating CSRF and XSS vulnerabilities.
+
+PHP has only been chosen as it is widely understood. All web applications need to be mindful of these vulnerabilities, regardless of the language or framework they are created with.
+
 Requirements
 ------------
 
