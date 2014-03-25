@@ -13,6 +13,11 @@ function profile_not_found()
   die('');
 }
 
+function escape_content($content)
+{
+  return preg_replace('/(<(?!img).*?>)/gi', '', $content);
+}
+
 // protect against empty param
 if (empty($_GET['id']))
   profile_not_found();
@@ -26,7 +31,7 @@ if (pg_num_rows($profile_result) < 1)
 
 // retrieve the user's data
 $profile_user = pg_fetch_assoc($profile_result);
-$profile_user_name = $profile_user['username'];
+$profile_user_name = htmlentities($profile_user['username']);
 
 // set the page title
 $_PAGE['title'] = $profile_user_name.'\'s Profile';
@@ -39,7 +44,7 @@ while($post = pg_fetch_assoc($posts_result))
 {
   $posts_rows .= '<tr>';
   $posts_rows .= '<td>'.$post['id'].'</td>';
-  $posts_rows .= '<td>'.$post['content'].'</td>';
+  $posts_rows .= '<td>'.escape_content($post['content']).'</td>';
   $posts_rows .= '</tr>';
 }
 
