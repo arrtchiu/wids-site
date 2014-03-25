@@ -32,7 +32,7 @@ Setup
     heroku config:set DATABASE_URL=$(heroku config:get HEROKU_POSTGRESQL_OLIVE_URL)
 
     git push heroku master
-    cat setup/init_db.sql | heroku pg:psql
+    heroku run bin/php www/setup/setup.php
 
 Architecture
 ------------
