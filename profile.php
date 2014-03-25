@@ -15,7 +15,7 @@ function profile_not_found()
 
 function escape_content($content)
 {
-  return preg_replace('/(<(?!img).*?>)/gi', '', $content);
+  return preg_replace('/(<(?!img).*?>)/i', '', $content);
 }
 
 // protect against empty param
